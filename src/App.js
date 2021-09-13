@@ -48,9 +48,8 @@ const App = () => {
 
   return (
     !isLoading && (
-      <div className="main-container">
+      <>
         <AuthBar />
-
         <Suspense fallback={loader}>
           <Switch>
             <PublicRoute path="/" exact>
@@ -70,7 +69,7 @@ const App = () => {
             </PrivateRoute>
           </Switch>
         </Suspense>
-      </div>
+      </>
     )
   );
 };

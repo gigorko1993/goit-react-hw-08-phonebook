@@ -38,6 +38,8 @@ const store = configureStore({
   devTools: process.env.NODE_ENV === "development",
 });
 
-let persist = persistStore(store);
+let persistor = persistStore(store);
 
-export { store, persist };
+const storeExp = { store, persistor };
+
+export default storeExp;

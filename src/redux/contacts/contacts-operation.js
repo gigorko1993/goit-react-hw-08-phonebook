@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import actions from "./contacts-action";
 
-axios.defaults.baseURL = "http://localhost:7777";
+axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
 const errorMessage = (err) =>
   toast.error(`There are some isues. 

@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AuthBar from "./components/AuthBar";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const HomeView = lazy(() =>
   import("./views/HomeView/HomeView" /* webpackChunkName: "home-view" */)
@@ -46,32 +47,32 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    !isLoading && (
-      <div className="main-container">
-        <AuthBar />
+    // !isLoading && (
+    <div className="main-container">
+      <AuthBar />
 
-        <Suspense fallback={loader}>
-          <Switch>
-            <PublicRoute path="/" exact>
-              <HomeView />
-            </PublicRoute>
+      <Suspense fallback={loader}>
+        <Switch>
+          <PublicRoute path="/" exact>
+            <HomeView />
+          </PublicRoute>
 
-            <PublicRoute path="/register" redirectTo="/contacts" restricted>
-              <RegisterView />
-            </PublicRoute>
+          <PublicRoute path="/register" redirectTo="/contacts" restricted>
+            <RegisterView />
+          </PublicRoute>
 
-            <PublicRoute path="/login" redirectTo="/contacts" restricted>
-              <LoginView />
-            </PublicRoute>
+          <PublicRoute path="/login" redirectTo="/contacts" restricted>
+            <LoginView />
+          </PublicRoute>
 
-            <PrivateRoute path="/contacts" redirectTo="/login">
-              <ContactsView />
-            </PrivateRoute>
-          </Switch>
-        </Suspense>
-      </div>
-    )
+          <PrivateRoute path="/contacts" redirectTo="/login">
+            <ContactsView />
+          </PrivateRoute>
+        </Switch>
+      </Suspense>
+    </div>
   );
+  // );
 };
 
 export default App;

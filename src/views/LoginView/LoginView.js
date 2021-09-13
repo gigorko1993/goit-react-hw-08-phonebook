@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/auth-operations";
+import { Button } from "react-bootstrap";
 
 const styles = {
   form: {
@@ -61,7 +62,9 @@ export default function LoginView() {
           />
         </label>
 
-        <button type="submit">Войти</button>
+        <Button variant="outline-secondary" type="submit">
+          Войти
+        </Button>
       </form>
     </div>
   );

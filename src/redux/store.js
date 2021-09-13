@@ -11,7 +11,6 @@ import {
 } from "redux-persist";
 import logger from "redux-logger";
 import storage from "redux-persist/lib/storage";
-
 import contactsReducer from "./contacts/contacts-reducer";
 import authReducer from "./auth/auth-reducer";
 
@@ -30,16 +29,13 @@ const authPersistConfig = {
   whitelist: ["token"],
 };
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     contacts: contactsReducer,
   },
+  middleware,
   devTools: process.env.NODE_ENV === "development",
 });
 
-let persistor = persistStore(store);
-
-const storeExp = { store, persistor };
-
-export default storeExp;
+export const persistor = persistStore(store);

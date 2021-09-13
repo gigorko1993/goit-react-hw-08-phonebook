@@ -7,15 +7,11 @@ export default function UserMenu() {
   const name = useSelector(authSelectors.getUsername);
 
   return (
-    <div className="user-menu">
-      <div className="">
-        <span className="user-name">{name}</span>
+    <div>
+      <div>
+        <span>{name}</span>
       </div>
-      <button
-        type="button"
-        className="logout-btn"
-        onClick={() => dispatch(logOut())}
-      >
+      <button type="button" onClick={() => dispatch(logOut())}>
         Log out
       </button>
     </div>

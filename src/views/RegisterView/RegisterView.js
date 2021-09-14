@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/auth-operations";
 
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+
 const styles = {
   form: {
     width: 320,
@@ -45,13 +48,41 @@ export default function RegisterView() {
       <h1>Registration Page</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Name:
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
+        <TextField
+          id="standard-basic"
+          label="Name"
+          // className={s.input}
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleChange}
+        />
+        <TextField
+          id="standard-basic"
+          label="Email"
+          // className={s.input}
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+        />
+        <TextField
+          id="standard-basic"
+          label="Password"
+          // className={s.input}
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+        />
 
-        <label style={styles.label}>
-          Email:
+        {/* <label style={styles.label}>
+          Имя
+          <input type="text" name="name" value={name} onChange={handleChange} />
+        </label> */}
+
+        {/* <label style={styles.label}>
+          Почта
           <input
             type="email"
             name="email"
@@ -61,17 +92,19 @@ export default function RegisterView() {
         </label>
 
         <label style={styles.label}>
-          Password:
+          Пароль
           <input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
           />
-        </label>
-        <button variant="outline-secondary" type="submit">
+        </label> */}
+
+        {/* <button type="submit">Зарегистрироваться</button> */}
+        <Button variant="contained" color="primary" type="submit">
           Sign Up
-        </button>
+        </Button>
       </form>
     </div>
   );

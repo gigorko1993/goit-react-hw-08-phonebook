@@ -4,17 +4,7 @@ import { register } from "../../redux/auth/auth-operations";
 
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: 15,
-  },
-};
+import s from "./RegisterView.module.css";
 
 export default function RegisterView() {
   const dispatch = useDispatch();
@@ -44,14 +34,13 @@ export default function RegisterView() {
   };
 
   return (
-    <div>
+    <div className={s.container}>
       <h1>Registration Page</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
         <TextField
           id="standard-basic"
           label="Name"
-          // className={s.input}
           type="text"
           name="name"
           value={name}
@@ -60,7 +49,6 @@ export default function RegisterView() {
         <TextField
           id="standard-basic"
           label="Email"
-          // className={s.input}
           type="email"
           name="email"
           value={email}
@@ -69,40 +57,18 @@ export default function RegisterView() {
         <TextField
           id="standard-basic"
           label="Password"
-          // className={s.input}
           type="password"
           name="password"
           value={password}
           onChange={handleChange}
         />
 
-        {/* <label style={styles.label}>
-          Имя
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label> */}
-
-        {/* <label style={styles.label}>
-          Почта
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
-
-        <label style={styles.label}>
-          Пароль
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label> */}
-
-        {/* <button type="submit">Зарегистрироваться</button> */}
-        <Button variant="contained" color="primary" type="submit">
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          className={s.button}
+        >
           Sign Up
         </Button>
       </form>

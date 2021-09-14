@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/auth-operations";
+import { toast } from "react-toastify";
 
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -24,6 +25,20 @@ export default function LoginView() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (
+      !email ||
+      e.target.email.value.trim() === "" ||
+      !password ||
+      e.target.password.trim() === ""
+    ) {
+      toast.warn("Enter email and password");
+      return;
+    }
+
+    if (password.length < 8 || e.target.password.value.length < 8) {
+      toast.warn("Password sjould be at least 8 characters");
+      return;
+    }
     dispatch(logIn({ email, password }));
     setEmail("");
     setPassword("");
@@ -35,7 +50,7 @@ export default function LoginView() {
 
       <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
         <TextField
-          id="standard-basic"
+          // id="standard-basic"
           label="Email"
           type="email"
           name="email"
@@ -43,7 +58,7 @@ export default function LoginView() {
           onChange={handleChange}
         />
         <TextField
-          id="standard-basic"
+          // id="standard-basic"
           label="Password"
           type="password"
           name="password"

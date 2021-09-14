@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AuthBar from "./components/AuthBar";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { ToastContainer } from "react-toastify";
 
 const HomeView = lazy(() =>
   import("./views/HomeView/HomeView" /* webpackChunkName: "home-view" */)
@@ -68,6 +69,17 @@ const App = () => {
             </PrivateRoute>
           </Switch>
         </Suspense>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </>
     )
   );

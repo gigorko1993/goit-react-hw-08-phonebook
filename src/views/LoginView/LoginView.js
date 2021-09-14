@@ -29,7 +29,7 @@ export default function LoginView() {
       !email ||
       e.target.email.value.trim() === "" ||
       !password ||
-      e.target.password.trim() === ""
+      e.target.password.value.trim() === ""
     ) {
       toast.warn("Enter email and password");
       return;

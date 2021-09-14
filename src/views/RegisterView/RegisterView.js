@@ -34,13 +34,15 @@ export default function RegisterView() {
       !email ||
       e.target.email.value.trim() === "" ||
       !password ||
-      e.target.password.trim() === ""
+      e.target.password.value.trim() === ""
     ) {
       toast.warn("Write your name, email and password");
       return;
     }
     if (password.length < 8 || e.target.password.value.length < 8) {
-      toast.warn("Password should be at least 8 characters");
+      toast.warn(
+        "Password should be minimum 8 characters, and contain at least one small and one letter in capital register [a-z], [A-Z]"
+      );
       return;
     }
 

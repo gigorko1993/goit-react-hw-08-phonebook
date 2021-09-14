@@ -1,10 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import { toast } from "react-toastify";
-
-// const errorMessage = (err) =>
-//   toast.error(`There are some isues.
-//   Message: ${err}.`);
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
@@ -25,11 +20,7 @@ export const register = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (err) {
-      // errorMessage(err);
       return thunkAPI.rejectWithValue();
-    } finally {
-      // toast.error("Change entered data. And try again");
-      return;
     }
   }
 );
@@ -42,7 +33,6 @@ export const logIn = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (err) {
-      // errorMessage(err);
       return thunkAPI.rejectWithValue();
     }
   }
@@ -53,8 +43,6 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
     await axios.post("/users/logout");
     token.unset();
   } catch (err) {
-    // errorMessage(err);
-
     return thunkAPI.rejectWithValue();
   }
 });
@@ -68,8 +56,6 @@ export const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.get("/users/current");
       return data;
     } catch (err) {
-      // errorMessage(err);
-
       return thunkAPI.rejectWithValue();
     }
   }

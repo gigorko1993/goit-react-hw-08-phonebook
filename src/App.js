@@ -9,7 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 import AuthBar from "./components/AuthBar";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const HomeView = lazy(() =>
   import("./views/HomeView/HomeView" /* webpackChunkName: "home-view" */)

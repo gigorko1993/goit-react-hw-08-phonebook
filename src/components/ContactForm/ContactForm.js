@@ -5,8 +5,6 @@ import { postContactsOperation } from "../../redux/contacts/contacts-operation";
 import { getContacts } from "../../redux/contacts/contacts-selectors";
 import s from "./ContactForm.module.css";
 
-import { Button } from "react-bootstrap";
-
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -77,9 +75,9 @@ const ContactForm = () => {
           required
         />
       </label>
-      <Button variant="outline-secondary" type="submit">
+      <button variant="outline-secondary" type="submit">
         Add contact
-      </Button>
+      </button>
     </form>
   );
 };

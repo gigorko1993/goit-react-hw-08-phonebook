@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/auth-operations";
-import { Button } from "react-bootstrap";
 
 const styles = {
   form: {
@@ -39,11 +38,11 @@ export default function LoginView() {
 
   return (
     <div>
-      <h1>Страница логина</h1>
+      <h1>Login Page</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
-          Почта
+          Email:
           <input
             type="email"
             name="email"
@@ -53,7 +52,7 @@ export default function LoginView() {
         </label>
 
         <label style={styles.label}>
-          Пароль
+          Password:
           <input
             type="password"
             name="password"
@@ -61,10 +60,9 @@ export default function LoginView() {
             onChange={handleChange}
           />
         </label>
-
-        <Button variant="outline-secondary" type="submit">
-          Войти
-        </Button>
+        <button variant="outline-secondary" type="submit">
+          Log In
+        </button>
       </form>
     </div>
   );

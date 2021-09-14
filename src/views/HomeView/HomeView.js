@@ -11,7 +11,7 @@ const HomeView = () => {
 
       {!isLoggedIn ? (
         <p>
-          \\Login / Register in our service, to have oportunity work with
+          Login / Register in our service, to have oportunity work with
           aplications
         </p>
       ) : (

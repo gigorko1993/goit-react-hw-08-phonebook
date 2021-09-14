@@ -1,6 +1,12 @@
-.form {
+.thumb {
   display: flex;
   flex-direction: column;
+  margin-right: 20px;
+}
+.form {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 20px;
 }
 
 .label {
@@ -11,11 +17,9 @@
 }
 
 .input {
-  display: inline-block;
-  margin-top: 5px;
+  margin-top: 10px;
   width: 250px;
   padding: 4px;
-  border: 1px solid rgba(199, 199, 199, 0.6);
 }
 
 .button {

@@ -1,3 +1,9 @@
+.thumb {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-left: 50px;
+  padding-right: 50px;
+}
 .button {
   padding: 1px 5px;
   background-color: #fff;
@@ -13,10 +19,6 @@
 
 .item {
   margin: 1px;
-  padding: 5px 10px;
-  list-style: inside;
-  border: 1px rgba(133, 129, 129, 0.2) solid;
-  border-radius: 2px;
 }
 
 .item:not(:last-child) {

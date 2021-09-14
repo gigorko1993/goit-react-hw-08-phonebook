@@ -3,11 +3,29 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { postContactsOperation } from "../../redux/contacts/contacts-operation";
 import { getContacts } from "../../redux/contacts/contacts-selectors";
+
 import s from "./ContactForm.module.css";
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "25ch",
+      // display: "flex",
+      // alignItems: "center",
+    },
+  },
+}));
 
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+
+  const classes = useStyles();
 
   const contacts = useSelector(getContacts);
 
@@ -48,10 +66,11 @@ const ContactForm = () => {
   };
 
   return (
-    <form className={s.form} onSubmit={onSubmit}>
-      <label className={s.label}>
-        Name
-        <input
+    <form cclassName={classes.root} className={s.form} onSubmit={onSubmit}>
+      <div className={s.thumb}>
+        <TextField
+          id="standard-basic"
+          label="Name"
           className={s.input}
           onChange={onChange}
           type="text"
@@ -61,10 +80,9 @@ const ContactForm = () => {
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
         />
-      </label>
-      <label className={s.label}>
-        Number
-        <input
+        <TextField
+          id="standard-basic"
+          label="Phone Number"
           className={s.input}
           onChange={onChange}
           type="tel"
@@ -74,10 +92,10 @@ const ContactForm = () => {
           value={number}
           required
         />
-      </label>
-      <button variant="outline-secondary" type="submit">
-        Add contact
-      </button>
+      </div>
+      <Fab aria-label="Add" color="primary" type="submit">
+        <AddIcon />
+      </Fab>
     </form>
   );
 };
